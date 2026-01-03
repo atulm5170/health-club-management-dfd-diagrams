@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Club Management System - DFD & ER Diagrams</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f5f5f5;padding:20px}
+.container{max-width:1100px;margin:0 auto;background:#fff;padding:30px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+h1{text-align:center;color:#2c3e50;margin-bottom:10px;font-size:26px}
+h2{text-align:center;color:#555;margin-bottom:25px;font-size:18px;font-weight:normal}
+.nav{display:flex;justify-content:center;gap:10px;margin-bottom:25px;flex-wrap:wrap}
+.nav button{padding:10px 20px;background:#27ae60;color:#fff;border:none;border-radius:5px;cursor:pointer;font-weight:bold;transition:all 0.3s}
+.nav button:hover{background:#229954;transform:translateY(-2px)}
+.page{border:3px solid #2c3e50;padding:20px;background:#fff;display:none;min-height:550px}
+.page.active{display:block}
+.page h3{text-align:center;color:#2c3e50;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #27ae60;font-size:20px}
+svg{width:100%;height:auto;border:1px solid #ddd;background:#fff}
+.entity{fill:#fff;stroke:#000;stroke-width:2}
+.process{fill:#fff;stroke:#000;stroke-width:2}
+.flow{stroke:#000;stroke-width:1.5;fill:none}
+.arrow{fill:#000}
+text{font-size:11px;fill:#000}
+.title{font-weight:bold;font-size:13px}
+.footer{text-align:center;margin-top:20px;padding-top:15px;border-top:2px solid #ddd;color:#777;font-size:14px}
+@media(max-width:768px){
+.container{padding:15px}
+h1{font-size:20px}
+h2{font-size:16px}
+.nav button{padding:8px 15px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>System Analysis</h1>
+<h2>Health Club Information Management System</h2>
+<div class="nav">
+<button onclick="show(0)">DFD Level 0</button>
+<button onclick="show(1)">DFD Level 1</button>
+<button onclick="show(2)">DFD Level 2</button>
+<button onclick="show(3)">ER Diagram</button>
+</div>
+
+<div id="p0" class="page active">
+<h3>Zero Level DFD (Context Diagram)</h3>
+<svg viewBox="0 0 800 600">
+<rect x="50" y="50" width="120" height="50" class="entity"/>
+<text x="110" y="80" text-anchor="middle" class="title">Member</text>
+<rect x="630" y="50" width="120" height="50" class="entity"/>
+<text x="690" y="80" text-anchor="middle" class="title">Trainer</text>
+<rect x="630" y="180" width="120" height="50" class="entity"/>
+<text x="690" y="210" text-anchor="middle" class="title">Receptionist</text>
+<rect x="630" y="310" width="120" height="50" class="entity"/>
+<text x="690" y="340" text-anchor="middle" class="title">Manager</text>
+<rect x="630" y="440" width="120" height="50" class="entity"/>
+<text x="690" y="470" text-anchor="middle" class="title">Accountant</text>
+<rect x="50" y="500" width="120" height="50" class="entity"/>
+<text x="110" y="530" text-anchor="middle" class="title">Supplier</text>
+<circle cx="400" cy="300" r="90" class="process"/>
+<text x="400" y="285" text-anchor="middle" class="title">Health Club</text>
+<text x="400" y="305" text-anchor="middle" class="title">Management</text>
+<text x="400" y="325" text-anchor="middle" class="title">System</text>
+<line x1="170" y1="75" x2="320" y2="250" class="flow"/>
+<polygon points="320,250 310,245 315,255" class="arrow"/>
+<text x="210" y="140">Membership</text>
+<text x="210" y="155">Request</text>
+<line x1="310" y1="330" x2="170" y2="500" class="flow"/>
+<polygon points="170,500 175,490 165,495" class="arrow"/>
+<text x="210" y="420">Membership</text>
+<text x="210" y="435">Card</text>
+<line x1="630" y1="75" x2="480" y2="240" class="flow"/>
+<polygon points="480,240 485,250 475,245" class="arrow"/>
+<text x="540" y="140">Training</text>
+<text x="540" y="155">Schedule</text>
+<line x1="490" y1="250" x2="630" y2="90" class="flow"/>
+<polygon points="630,90 620,90 625,80" class="arrow"/>
+<text x="540" y="175">Member</text>
+<text x="540" y="190">Progress</text>
+<line x1="630" y1="205" x2="490" y2="270" class="flow"/>
+<polygon points="490,270 495,260 485,265" class="arrow"/>
+<text x="540" y="225">Attendance</text>
+<line x1="480" y1="290" x2="630" y2="220" class="flow"/>
+<polygon points="630,220 620,220 625,210" class="arrow"/>
+<text x="540" y="260">Member Info</text>
+<line x1="630" y1="335" x2="490" y2="310" class="flow"/>
+<polygon points="490,310 495,320 485,315" class="arrow"/>
+<text x="540" y="310">Reports</text>
+<text x="540" y="325">Request</text>
+<line x1="480" y1="320" x2="630" y2="350" class="flow"/>
+<polygon points="630,350 620,350 625,340" class="arrow"/>
+<text x="540" y="340">Analytics</text>
+<line x1="630" y1="465" x2="490" y2="350" class="flow"/>
+<polygon points="490,350 495,360 485,355" class="arrow"/>
+<text x="540" y="400">Payment</text>
+<text x="540" y="415">Details</text>
+<line x1="480" y1="360" x2="630" y2="480" class="flow"/>
+<polygon points="630,480 620,480 625,470" class="arrow"/>
+<text x="540" y="430">Invoice</text>
+<line x1="170" y1="525" x2="320" y2="370" class="flow"/>
+<polygon points="320,370 315,360 325,365" class="arrow"/>
+<text x="210" y="460">Equipment</text>
+<text x="210" y="475">Order</text>
+<line x1="310" y1="380" x2="170" y2="510" class="flow"/>
+<polygon points="170,510 175,500 165,505" class="arrow"/>
+<text x="210" y="490">Delivery</text>
+</svg>
+</div>
+
+<div id="p1" class="page">
+<h3>One Level DFD</h3>
+<svg viewBox="0 0 950 750">
+<rect x="50" y="50" width="100" height="40" class="entity"/>
+<text x="100" y="75" text-anchor="middle" class="title">Member</text>
+<rect x="800" y="50" width="100" height="40" class="entity"/>
+<text x="850" y="75" text-anchor="middle" class="title">Trainer</text>
+<rect x="800" y="250" width="100" height="40" class="entity"/>
+<text x="850" y="275" text-anchor="middle" class="title">Manager</text>
+<rect x="800" y="450" width="100" height="40" class="entity"/>
+<text x="850" y="475" text-anchor="middle" class="title">Accountant</text>
+<rect x="50" y="650" width="100" height="40" class="entity"/>
+<text x="100" y="675" text-anchor="middle" class="title">Supplier</text>
+<circle cx="250" cy="120" r="55" class="process"/>
+<text x="250" y="110" text-anchor="middle" class="title">1.0</text>
+<text x="250" y="130" text-anchor="middle">Member</text>
+<text x="250" y="145" text-anchor="middle">Registration</text>
+<circle cx="500" cy="120" r="55" class="process"/>
+<text x="500" y="110" text-anchor="middle" class="title">2.0</text>
+<text x="500" y="130" text-anchor="middle">Attendance</text>
+<text x="500" y="145" text-anchor="middle">Tracking</text>
+<circle cx="650" cy="250" r="55" class="process"/>
+<text x="650" y="240" text-anchor="middle" class="title">3.0</text>
+<text x="650" y="260" text-anchor="middle">Training</text>
+<text x="650" y="275" text-anchor="middle">Management</text>
+<circle cx="500" cy="380" r="55" class="process"/>
+<text x="500" y="370" text-anchor="middle" class="title">4.0</text>
+<text x="500" y="390" text-anchor="middle">Payment</text>
+<text x="500" y="405" text-anchor="middle">Processing</text>
+<circle cx="250" cy="520" r="55" class="process"/>
+<text x="250" y="510" text-anchor="middle" class="title">5.0</text>
+<text x="250" y="530" text-anchor="middle">Equipment</text>
+<text x="250" y="545" text-anchor="middle">Management</text>
+<circle cx="650" cy="520" r="55" class="process"/>
+<text x="650" y="510" text-anchor="middle" class="title">6.0</text>
+<text x="650" y="530" text-anchor="middle">Report</text>
+<text x="650" y="545" text-anchor="middle">Generation</text>
+<rect x="200" y="230" width="150" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="275" y="247" text-anchor="middle">D1: Member DB</text>
+<rect x="450" y="230" width="150" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="525" y="247" text-anchor="middle">D2: Attendance DB</text>
+<rect x="600" y="360" width="150" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="675" y="377" text-anchor="middle">D3: Training DB</text>
+<rect x="450" y="490" width="150" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="525" y="507" text-anchor="middle">D4: Payment DB</text>
+<rect x="50" y="360" width="150" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="125" y="377" text-anchor="middle">D5: Equipment DB</text>
+<rect x="600" y="620" width="150" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="675" y="637" text-anchor="middle">D6: Reports DB</text>
+<line x1="150" y1="70" x2="200" y2="100" class="flow"/>
+<polygon points="200,100 195,90 205,95" class="arrow"/>
+<text x="160" y="80">Registration</text>
+<line x1="250" y1="175" x2="250" y2="230" class="flow"/>
+<polygon points="250,230 245,220 255,220" class="arrow"/>
+<line x1="305" y1="120" x2="445" y2="120" class="flow"/>
+<polygon points="445,120 435,115 435,125" class="arrow"/>
+<line x1="500" y1="175" x2="500" y2="230" class="flow"/>
+<polygon points="500,230 495,220 505,220" class="arrow"/>
+<line x1="555" y1="120" x2="650" y2="195" class="flow"/>
+<polygon points="650,195 645,185 655,190" class="arrow"/>
+<line x1="650" y1="305" x2="650" y2="360" class="flow"/>
+<polygon points="650,360 645,350 655,350" class="arrow"/>
+<line x1="705" y1="250" x2="800" y2="270" class="flow"/>
+<polygon points="800,270 790,270 795,260" class="arrow"/>
+<text x="740" y="255">Schedule</text>
+<line x1="710" y1="230" x2="800" y2="75" class="flow"/>
+<polygon points="800,75 790,80 795,70" class="arrow"/>
+<text x="740" y="140">Progress</text>
+<line x1="500" y1="325" x2="500" y2="255" class="flow"/>
+<polygon points="500,255 495,265 505,265" class="arrow"/>
+<line x1="150" y1="70" x2="445" y2="110" class="flow"/>
+<polygon points="445,110 435,110 440,100" class="arrow"/>
+<line x1="500" y1="435" x2="500" y2="490" class="flow"/>
+<polygon points="500,490 495,480 505,480" class="arrow"/>
+<line x1="555" y1="380" x2="800" y2="470" class="flow"/>
+<polygon points="800,470 790,470 795,460" class="arrow"/>
+<text x="660" y="420">Payment Info</text>
+<line x1="150" y1="670" x2="195" y2="540" class="flow"/>
+<polygon points="195,540 190,550 185,540" class="arrow"/>
+<text x="160" y="600">Order</text>
+<line x1="250" y1="465" x2="250" y2="385" class="flow"/>
+<polygon points="250,385 245,395 255,395" class="arrow"/>
+<line x1="200" y1="372" x2="250" y2="475" class="flow"/>
+<polygon points="250,475 245,465 255,470" class="arrow"/>
+<line x1="650" y1="575" x2="650" y2="620" class="flow"/>
+<polygon points="650,620 645,610 655,610" class="arrow"/>
+<line x1="705" y1="520" x2="800" y2="275" class="flow"/>
+<polygon points="800,275 790,280 795,270" class="arrow"/>
+<text x="740" y="390">Reports</text>
+</svg>
+</div>
+
+<div id="p2" class="page">
+<h3>Two Level DFD (Training Management Process 3.0)</h3>
+<svg viewBox="0 0 900 650">
+<rect x="50" y="50" width="120" height="40" class="entity"/>
+<text x="110" y="75" text-anchor="middle" class="title">Trainer</text>
+<rect x="730" y="50" width="120" height="40" class="entity"/>
+<text x="790" y="75" text-anchor="middle" class="title">Member</text>
+<rect x="730" y="500" width="120" height="40" class="entity"/>
+<text x="790" y="525" text-anchor="middle" class="title">Manager</text>
+<circle cx="250" cy="150" r="50" class="process"/>
+<text x="250" y="140" text-anchor="middle" class="title">3.1</text>
+<text x="250" y="160" text-anchor="middle">Create</text>
+<text x="250" y="175" text-anchor="middle">Schedule</text>
+<circle cx="500" cy="150" r="50" class="process"/>
+<text x="500" y="140" text-anchor="middle" class="title">3.2</text>
+<text x="500" y="160" text-anchor="middle">Assign</text>
+<text x="500" y="175" text-anchor="middle">Trainer</text>
+<circle cx="650" cy="250" r="50" class="process"/>
+<text x="650" y="240" text-anchor="middle" class="title">3.3</text>
+<text x="650" y="260" text-anchor="middle">Track</text>
+<text x="650" y="275" text-anchor="middle">Progress</text>
+<circle cx="500" cy="400" r="50" class="process"/>
+<text x="500" y="390" text-anchor="middle" class="title">3.4</text>
+<text x="500" y="410" text-anchor="middle">Update</text>
+<text x="500" y="425" text-anchor="middle">Workout</text>
+<circle cx="250" cy="500" r="50" class="process"/>
+<text x="250" y="490" text-anchor="middle" class="title">3.5</text>
+<text x="250" y="510" text-anchor="middle">Generate</text>
+<text x="250" y="525" text-anchor="middle">Report</text>
+<rect x="50" y="280" width="160" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="130" y="297" text-anchor="middle">D3.1: Schedule DB</text>
+<rect x="420" y="280" width="160" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="500" y="297" text-anchor="middle">D3.2: Trainer DB</text>
+<rect x="650" y="360" width="160" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="730" y="377" text-anchor="middle">D3.3: Progress DB</text>
+<rect x="300" y="560" width="160" height="25" style="fill:#fff;stroke:#000;stroke-width:2"/>
+<text x="380" y="577" text-anchor="middle">D3.4: Workout DB</text>
+<line x1="170" y1="70" x2="210" y2="120" class="flow"/>
+<polygon points="210,120 205,110 215,115" class="arrow"/>
+<text x="180" y="90">Schedule</text>
+<line x1="250" y1="200" x2="200" y2="280" class="flow"/>
+<polygon points="200,280 205,270 195,275" class="arrow"/>
+<line x1="300" y1="150" x2="450" y2="150" class="flow"/>
+<polygon points="450,150 440,145 440,155" class="arrow"/>
+<text x="350" y="140">Schedule</text>
+<line x1="500" y1="200" x2="500" y2="280" class="flow"/>
+<polygon points="500,280 495,270 505,270" class="arrow"/>
+<line x1="550" y1="150" x2="650" y2="200" class="flow"/>
+<polygon points="650,200 645,190 655,195" class="arrow"/>
+<text x="580" y="165">Assignment</text>
+<line x1="650" y1="300" x2="730" y2="372" class="flow"/>
+<polygon points="730,372 725,362 735,367" class="arrow"/>
+<line x1="700" y1="250" x2="730" y2="70" class="flow"/>
+<polygon points="730,70 720,75 725,65" class="arrow"/>
+<text x="710" y="150">Progress</text>
+<text x="710" y="165">Report</text>
+<line x1="600" y1="270" x2="500" y2="350" class="flow"/>
+<polygon points="500,350 505,340 495,345" class="arrow"/>
+<text x="530" y="300">Update</text>
+<line x1="500" y1="450" x2="460" y2="560" class="flow"/>
+<polygon points="460,560 465,550 455,555" class="arrow"/>
+<line x1="300" y1="500" x2="420" y2="572" class="flow"/>
+<polygon points="420,572 410,570 415,560" class="arrow"/>
+<line x1="250" y1="450" x2="250" y2="305" class="flow"/>
+<polygon points="250,305 245,315 255,315" class="arrow"/>
+<line x1="300" y1="510" x2="730" y2="525" class="flow"/>
+<polygon points="730,525 720,520 720,530" class="arrow"/>
+<text x="480" y="510">Training Report</text>
+<line x1="170" y1="70" x2="450" y2="140" class="flow"/>
+<polygon points="450,140 440,140 445,130" class="arrow"/>
+</svg>
+</div>
+
+<div id="p3" class="page">
+<h3>Entity Relationship Diagram</h3>
+<svg viewBox="0 0 1000 800">
+<rect x="50" y="50" width="140" height="120" class="entity"/>
+<text x="120" y="75" text-anchor="middle" class="title">MEMBER</text>
+<line x1="50" y1="85" x2="190" y2="85" stroke="#000" stroke-width="2"/>
+<text x="60" y="105">MemberID (PK)</text>
+<text x="60" y="125">Name</text>
+<text x="60" y="145">Phone, Email</text>
+<text x="60" y="165">JoinDate</text>
+<rect x="430" y="50" width="140" height="120" class="entity"/>
+<text x="500" y="75" text-anchor="middle" class="title">MEMBERSHIP</text>
+<line x1="430" y1="85" x2="570" y2="85" stroke="#000" stroke-width="2"/>
+<text x="440" y="105">MembershipID</text>
+<text x="440" y="125">Type, Duration</text>
+<text x="440" y="145">StartDate</text>
+<text x="440" y="165">Amount</text>
+<rect x="810" y="50" width="140" height="120" class="entity"/>
+<text x="880" y="75" text-anchor="middle" class="title">TRAINER</text>
+<line x1="810" y1="85" x2="950" y2="85" stroke="#000" stroke-width="2"/>
+<text x="820" y="105">TrainerID (PK)</text>
+<text x="820" y="125">Name</text>
+<text x="820" y="145">Specialization</text>
+<text x="820" y="165">Experience</text>
+<rect x="50" y="340" width="140" height="120" class="entity"/>
+<text x="120" y="365" text-anchor="middle" class="title">ATTENDANCE</text>
+<line x1="50" y1="375" x2="190" y2="375" stroke="#000" stroke-width="2"/>
+<text x="60" y="395">AttendanceID</text>
+<text x="60" y="415">Date, Time</text>
+<text x="60" y="435">CheckIn</text>
+<text x="60" y="455">CheckOut</text>
+<rect x="430" y="340" width="140" height="120" class="entity"/>
+<text x="500" y="365" text-anchor="middle" class="title">TRAINING</text>
+<line x1="430" y1="375" x2="570" y2="375" stroke="#000" stroke-width="2"/>
+<text x="440" y="395">TrainingID (PK)</text>
+<text x="440" y="415">SessionType</text>
+<text x="440" y="435">Schedule</text>
+<text x="440" y="455">Duration</text>
+<rect x="810" y="340" width="140" height="120" class="entity"/>
+<text x="880" y="365" text-anchor="middle" class="title">WORKOUT</text>
+<line x1="810" y1="375" x2="950" y2="375" stroke="#000" stroke-width="2"/>
+<text x="820" y="395">WorkoutID (PK)</text>
+<text x="820" y="415">ExerciseName</text>
+<text x="820" y="435">Sets, Reps</text>
+<text x="820" y="455">Weight</text>
+<rect x="50" y="630" width="140" height="120" class="entity"/>
+<text x="120" y="655" text-anchor="middle" class="title">PAYMENT</text>
+<line x1="50" y1="665" x2="190" y2="665" stroke="#000" stroke-width="2"/>
+<text x="60" y="685">PaymentID (PK)</text>
+<text x="60" y="705">Amount</text>
+<text x="60" y="725">PaymentDate</text>
+<text x="60" y="745">Method</text>
+<rect x="430" y="630" width="140" height="120" class="entity"/>
+<text x="500" y="655" text-anchor="middle" class="title">EQUIPMENT</text>
+<line x1="430" y1="665" x2="570" y2="665" stroke="#000" stroke-width="2"/>
+<text x="440" y="685">EquipmentID</text>
+<text x="440" y="705">Name, Type</text>
+<text x="440" y="725">Status</text>
+<text x="440" y="745">PurchaseDate</text>
+<rect x="810" y="630" width="140" height="120" class="entity"/>
+<text x="880" y="655" text-anchor="middle" class="title">CLASS</text>
+<line x1="810" y1="665" x2="950" y2="665" stroke="#000" stroke-width="2"/>
+<text x="820" y="685">ClassID (PK)</text>
+<text x="820" y="705">ClassName</text>
+<text x="820" y="725">Schedule</text>
+<text x="820" y="745">Capacity</text>
+<line x1="190" y1="110" x2="430" y2="110" stroke="#000" stroke-width="2"/>
+<polygon points="430,110 420,105 420,115" class="arrow"/>
+<text x="280" y="100">has</text>
+<text x="200" y="125" style="fill:#e74c3c;font-weight:bold">1</text>
+<text x="410" y="125" style="fill:#e74c3c;font-weight:bold">1</text>
+<line x1="120" y1="170" x2="120" y2="340" stroke="#000" stroke-width="2"/>
+<polygon points="120,340 115,330 125,330" class="arrow"/>
+<text x="130" y="260">records</text>
+<text x="130" y="180" style="fill:#e74c3c;font-weight:bold">1</text>
+<text x="130" y="330" style="fill:#e74c3c;font-weight:bold">M</text>
+<line x1="190" y1="130" x2="430" y2="380" stroke="#000" stroke-width="2"/>
+<polygon points="430,380 420,380 425,370" class="arrow"/>
+<text x="280" y="240">enrolls</text>
+<text x="200" y="140" style="fill:#e74c3c;font-weight:bold">M</text>
+<text x="410" y="370" style="fill:#e74c3c;font-weight:bold">M</text>
+<line x1="810" y1="110" x2="570" y2="380" stroke="#000" stroke-width="2"/>
+<polygon points="570,380 580,380 575,370" class="arrow"/>
+<text x="660" y="230">conducts</text>
+<text x="790" y="120" style="fill:#e74c3c;font-weight:bold">1</text>
+<text x="580" y="370" style="fill:#e74c3c;font-weight:bold">M</text>
+<line x1="570" y1="400" x2="810" y2="400" stroke="#000" stroke-width="2"/>
+<polygon points="810,400 800,395 800,405" class="arrow"/>
+<text x="660" y="390">includes</text>
+<text x="580" y="415" style="fill:#e74c3c;font-weight:bold">1</text>
+<text x="790" y="415" style="fill:#e74c3c;font-weight:bold">M</text>
+<line x1="120" y1="460" x2="120" y2="630" stroke="#000" stroke-width="2"/>
+<polygon points="120,630 115,620 125,620" class="arrow"/>
+<text x="130" y="550">makes</text>
+<text x="130" y="470" style="fill:#e74c3c;font-weight:bold">1</text>
+<text x="130" y="620" style="fill:#e74c3c;font-weight:bold">M</text>
+<line x1="190" y1="690" x2="430" y2="690" stroke="#000" stroke-width="2"/>
+<polygon points="430,690 420,685 420,695" class="arrow"/>
+<text x="280" y="680">for</text>
+<text x="200" y="705" style="fill:#e74c3c;font-weight:bold">M</text>
+<text x="410" y="705" style="fill:#e74c3c;font-weight:bold">1</text>
+<line x1="570" y1="690" x2="810" y2="690" stroke="#000" stroke-width="2"/>
+<polygon points="810,690 800,685 800,695" class="arrow"/>
+<text x="660" y="680">uses</text>
+<text x="580" y="705" style="fill:#e74c3c;font-weight:bold">M</text>
+<text x="790" y="705" style="fill:#e74c3c;font-weight:bold">M</text>
+<line x1="880" y1="170" x2="880" y2="630" stroke="#000" stroke-width="2"/>
+<polygon points="880,630 875,620 885,620" class="arrow"/>
+<text x="890" y="410">teaches</text>
+<text x="890" y="180" style="fill:#e74c3c;font-weight:bold">1</text>
+<text x="890" y="620" style="fill:#e74c3c;font-weight:bold">M</text>
+</svg>
+</div>
+
+<div class="footer">
+<p>Page <span id="num">1</span> / 4</p>
+<p style="margin-top:10px;font-size:12px">Health Club Information Management System - Professional DFD & ER Diagrams</p>
+</div>
+</div>
+
+<script>
+function show(n){
+var p=document.querySelectorAll('.page');
+for(var i=0;i<p.length;i++)p[i].classList.remove('active');
+p[n].classList.add('active');
+document.getElementById('num').textContent=n+1;
+}
+</script>
+</body>
+</html>
